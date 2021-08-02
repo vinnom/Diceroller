@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/activity_main_textview_descricao_rolagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        style="@style/TextoDinamico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Rolando 1d20+10 =" />
+
+    <TextView
+        android:id="@+id/activity_main_resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/resultado_inicial"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="108sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_main_textview_descricao_rolagem"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/activity_main_textview_multiplicador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/multiplicador_de_dados"
+        style="@style/TextoEstatico"
+        app:layout_constraintStart_toStartOf="@id/activity_main_textview_descricao_rolagem"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_resultado"
+        tools:text="Multiplicador de Dados:" />
+
+    <TextView
+        android:id="@+id/activity_main_textview_soma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/somar_valor"
+        style="@style/TextoEstatico"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_textview_multiplicador"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_textview_multiplicador"
+        tools:text="Somar valor:" />
+
+    <EditText
+        android:id="@+id/activity_main_edittext_multiplicador"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="@string/modificador_multiplica"
+        android:autofillHints=""
+        style="@style/CaixaDeTexto"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_textview_multiplicador"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_textview_multiplicador"
+        app:layout_constraintTop_toTopOf="@+id/activity_main_textview_multiplicador"
+        tools:text="1" />
+
+    <EditText
+        android:id="@+id/activity_main_edittext_soma"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:autofillHints=""
+        android:hint="@string/modificador_soma"
+        style="@style/CaixaDeTexto"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_textview_soma"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_textview_soma"
+        app:layout_constraintTop_toTopOf="@+id/activity_main_textview_soma"
+        tools:text="0" />
+
+    <Button
+        android:id="@+id/botao_1d4"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/dado_1d4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_textview_soma"
+        tools:text="1D4" />
+
+    <Button
+        android:id="@+id/botao_1d6"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/dado_1d6"
+        app:layout_constraintStart_toStartOf="@+id/botao_1d4"
+        app:layout_constraintTop_toBottomOf="@+id/botao_1d4"
+        tools:text="1D6" />
+
+    <Button
+        android:id="@+id/botao_1d8"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/dado_1d8"
+        app:layout_constraintStart_toStartOf="@+id/botao_1d4"
+        app:layout_constraintTop_toBottomOf="@+id/botao_1d6"
+        tools:text="1D8" />
+
+    <Button
+        android:id="@+id/botao_1d10"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:text="@string/dado_1d10"
+        app:layout_constraintBottom_toBottomOf="@id/botao_1d4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/botao_1d4"
+        tools:text="1D10" />
+
+    <Button
+        android:id="@+id/botao_1d12"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/dado_1d12"
+        app:layout_constraintStart_toStartOf="@+id/botao_1d10"
+        app:layout_constraintTop_toBottomOf="@+id/botao_1d10"
+        tools:text="1D12" />
+
+    <Button
+        android:id="@+id/botao_1d20"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/dado_1d20"
+        app:layout_constraintStart_toStartOf="@+id/botao_1d10"
+        app:layout_constraintTop_toBottomOf="@+id/botao_1d12"
+        tools:text="1D20" />
+
+    <Button
+        android:id="@+id/botao_1d100"
+        style="@style/Botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/dado_1d100"
+        app:layout_constraintEnd_toEndOf="@+id/botao_1d20"
+        app:layout_constraintStart_toStartOf="@+id/botao_1d8"
+        app:layout_constraintTop_toBottomOf="@+id/botao_1d8"
+        tools:text="1D100" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

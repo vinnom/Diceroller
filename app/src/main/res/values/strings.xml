@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">DiceRoller</string>
+    <string name="modificador_soma">0</string>
+    <string name="modificador_multiplica">1</string>
+    <string name="texto_rolagem">Rolando %dd%d+%d =</string>
+    <string name="resultado_inicial">0</string>
+    <string name="multiplicador_de_dados">Multiplicador de Dados:</string>
+    <string name="somar_valor">Somar valor:</string>
+    <string name="dado_1d4">1D4</string>
+    <string name="dado_1d6">1D6</string>
+    <string name="dado_1d8">1D8</string>
+    <string name="dado_1d10">1D10</string>
+    <string name="dado_1d12">1D12</string>
+    <string name="dado_1d20">1D20</string>
+    <string name="dado_1d100">1D100</string>
+    <string name="about_trilhavnt_android">TrilhaVNT Android</string>
+    <string name="about_diceroller_app">Diceroller APP</string>
+    <string name="about_vntvisi_venturus">vntvisi@Venturus</string>
+</resources>
