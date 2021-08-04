@@ -1,6 +1,11 @@
 package br.com.vntvisi.diceroller
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -61,6 +66,21 @@ class MainActivity : AppCompatActivity() {
             rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D100)
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_about, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.home_about -> {
+                startActivity(Intent(this, About::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun rolaODado(
