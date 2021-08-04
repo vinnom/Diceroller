@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.vntvisi.diceroller.R
 
-class DesafioActivity : AppCompatActivity() {
+class DesafioIntentActivity : AppCompatActivity() {
+    // TODO: implementar desafio
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_desafio)

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_dice_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiceRoller">
-        <activity android:name=".desafio.dia3007.DesafioActivity"></activity>
+        <activity android:name=".desafio.dia3007.DesafioIntentActivity"></activity>
         <activity android:name=".About" />
         <activity android:name=".MainActivity">
             <intent-filter>
