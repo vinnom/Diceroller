@@ -8,25 +8,52 @@
 
     <TextView
         android:id="@+id/about_trilha_vnt"
+        style="@style/TextoEstatico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/about_trilhavnt_android"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/about_appname"
+        style="@style/TextoEstatico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/about_diceroller_app"
         app:layout_constraintStart_toStartOf="@id/about_trilha_vnt"
-        app:layout_constraintTop_toBottomOf="@id/about_trilha_vnt"/>
+        app:layout_constraintTop_toBottomOf="@id/about_trilha_vnt" />
 
     <TextView
         android:id="@+id/about_devname"
+        style="@style/TextoEstatico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/about_vntvisi_venturus"
         app:layout_constraintStart_toStartOf="@id/about_trilha_vnt"
-        app:layout_constraintTop_toBottomOf="@id/about_appname"/>
+        app:layout_constraintTop_toBottomOf="@id/about_appname" />
+
+    <TextView
+        android:id="@+id/desafio_intent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/desafio_intent"
+        android:textColor="@color/blue_primary_light"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_devname" />
+
+    <TextView
+        android:id="@+id/desafio_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/desafio_fragment"
+        android:textColor="@color/blue_primary_light"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@id/desafio_intent"
+        app:layout_constraintTop_toBottomOf="@id/desafio_intent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,4 +16,8 @@
     <string name="about_trilhavnt_android">TrilhaVNT Android</string>
     <string name="about_diceroller_app">Diceroller APP</string>
     <string name="about_vntvisi_venturus">vntvisi@Venturus</string>
+    <string name="desafio_intent">Desafio Intent</string>
+    <string name="desafio_fragment">Desafio Fragment</string>
+    <string name="dica_digite_um_texto">Digite um texto</string>
+    <string name="botao_envia_texto">Envie esse texto para outro app</string>
 </resources>

@@ -25,4 +25,9 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="TextoDesafio">
+        <item name="android:textColor">@color/blue_primary_light</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
 </resources>
