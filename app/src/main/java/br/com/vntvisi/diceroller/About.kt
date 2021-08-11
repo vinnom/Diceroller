@@ -2,18 +2,18 @@ package br.com.vntvisi.diceroller
 
 import android.content.Intent
 import android.graphics.Paint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import br.com.vntvisi.diceroller.desafio.dia20210730.DesafioIntentActivity
 import br.com.vntvisi.diceroller.desafio.dia20210804.DesafioFragmentActivity
 import br.com.vntvisi.diceroller.desafio.dia20210806.DesafioRotacaoTelaActivity
+import br.com.vntvisi.diceroller.desafio.dia20210811.DesafioRecyclerViewActivity
 
 class About : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
-
 
 
         val tvDesafioIntent = findViewById<TextView>(R.id.desafio_intent)
@@ -35,6 +35,14 @@ class About : AppCompatActivity() {
 
         tvDesafioRotacao.setOnClickListener {
             startActivity(Intent(this, DesafioRotacaoTelaActivity::class.java))
+        }
+
+        val tvDesafioRecyclerView = findViewById<TextView>(R.id.desafio_recycler_view_list)
+        tvDesafioRecyclerView.paintFlags =
+            tvDesafioRecyclerView.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+
+        tvDesafioRecyclerView.setOnClickListener {
+            startActivity(Intent(this, DesafioRecyclerViewActivity::class.java))
         }
 
     }

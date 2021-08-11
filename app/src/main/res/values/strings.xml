@@ -25,4 +25,5 @@
     <string name="botao_incrementa">Increment</string>
     <string name="desafio_rotacao_de_tela">Desafio Rotação de Tela</string>
     <string name="titulo_about">About</string>
+    <string name="desafio_recyclerview">Desafio RecyclerView</string>
 </resources>
