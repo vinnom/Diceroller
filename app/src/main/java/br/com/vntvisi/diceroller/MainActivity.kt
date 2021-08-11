@@ -2,16 +2,11 @@ package br.com.vntvisi.diceroller
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
+import br.com.vntvisi.diceroller.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 private const val D4 = 4
@@ -25,48 +20,39 @@ private const val D100 = 100
 
 class MainActivity : AppCompatActivity() {
 
-    private val rolagemDescricao by lazy {
-        findViewById<TextView>(R.id.activity_main_textview_descricao_rolagem)
+    private val mainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
     }
-    private val botao1d4 by lazy { findViewById<Button>(R.id.botao_1d4) }
-    private val botao1d6 by lazy { findViewById<Button>(R.id.botao_1d6) }
-    private val botao1d8 by lazy { findViewById<Button>(R.id.botao_1d8) }
-    private val botao1d10 by lazy { findViewById<Button>(R.id.botao_1d10) }
-    private val botao1d12 by lazy { findViewById<Button>(R.id.botao_1d12) }
-    private val botao1d20 by lazy { findViewById<Button>(R.id.botao_1d20) }
-    private val botao1d100 by lazy { findViewById<Button>(R.id.botao_1d100) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(mainBinding.root)
+    }
 
-        val resultadoTextView = findViewById<TextView>(R.id.activity_main_resultado)
-        val multiplicadorEditText =
-            findViewById<EditText>(R.id.activity_main_edittext_multiplicador)
-        val somaEditText = findViewById<EditText>(R.id.activity_main_edittext_soma)
+    override fun onResume() {
+        super.onResume()
 
-        botao1d4.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D4)
+        mainBinding.botao1d4.setOnClickListener {
+            Dado(D4).rola()
         }
-        botao1d6.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D6)
+        mainBinding.botao1d6.setOnClickListener {
+            Dado(D6).rola()
         }
-        botao1d8.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D8)
+        mainBinding.botao1d8.setOnClickListener {
+            Dado(D8).rola()
         }
-        botao1d10.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D10)
+        mainBinding.botao1d10.setOnClickListener {
+            Dado(D10).rola()
         }
-        botao1d12.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D12)
+        mainBinding.botao1d12.setOnClickListener {
+            Dado(D12).rola()
         }
-        botao1d20.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D20)
+        mainBinding.botao1d20.setOnClickListener {
+            Dado(D20).rola()
         }
-        botao1d100.setOnClickListener {
-            rolaODado(multiplicadorEditText, somaEditText, resultadoTextView, D100)
+        mainBinding.botao1d100.setOnClickListener {
+            Dado(D100).rola()
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -75,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.home_about -> {
                 startActivity(Intent(this, About::class.java))
                 true
@@ -84,38 +70,66 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun rolaODado(
-        multiplicadorEditText: EditText,
-        somaEditText: EditText,
-        resultadoTextView: TextView,
-        quantidadeDeFaces: Int
-    ) {
-        val dado = Random.nextInt(1, quantidadeDeFaces + 1)
-        val multiplicadorText = multiplicadorEditText.text.toString()
-        val somaText = somaEditText.text.toString()
-        var multiplicador = 1
-        var soma = 0
+    inner class Dado(private val quantidadeDeFaces: Int) {
 
-        if (multiplicadorText.isNotEmpty()) {
-            val multiplicadorInt = multiplicadorText.toInt()
-            if (multiplicadorInt > 0) {
-                multiplicador = multiplicadorInt
+        fun rola() {
+            val multiplicadorText = mainBinding.activityMainEdittextMultiplicador.text.toString()
+            val somaText = mainBinding.activityMainEdittextSoma.text.toString()
+            val lista = mutableListOf<Int>()
+            var multiplicador = 1
+            var soma = 0
+
+            if (multiplicadorText.isNotEmpty()) {
+                val multiplicadorInt = multiplicadorText.toInt()
+                if (multiplicadorInt > 0) {
+                    multiplicador = multiplicadorInt
+                    repeat(multiplicador) {
+                        lista.add(Random.nextInt(1, quantidadeDeFaces + 1))
+                    }
+                } else {
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Multiplicador tem que ser maior que zero",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    mainBinding.activityMainResultado.text = 0.toString()
+                    mainBinding.activityMainTextviewDescricaoRolagem.text = ""
+                    mainBinding.activityMainTextviewDetalheRolagem.text = ""
+                    return
+                }
             } else {
-                Toast.makeText(
-                    this,
-                    "Multiplicador tem que ser maior que zero",
-                    Toast.LENGTH_SHORT
-                ).show()
-                resultadoTextView.text = (0).toString()
-                rolagemDescricao.text = ""
-                return
+                lista.add(Random.nextInt(1, quantidadeDeFaces + 1))
             }
+            if (somaText.isNotEmpty()) {
+                soma = Integer.parseInt(somaText)
+            }
+            var resultado = 0
+            val detalheBuilder = StringBuilder("(")
+            for (i in lista) {
+                resultado += i
+                detalheBuilder.append(i.toString())
+                detalheBuilder.append(",")
+            }
+            detalheBuilder.deleteCharAt(detalheBuilder.lastIndex)
+            detalheBuilder.append(")")
+            if (soma > 0) {
+                detalheBuilder.append("+${soma}")
+            } else if (soma < 0) {
+                detalheBuilder.append("$soma")
+            }
+
+            val detalhe = detalheBuilder.toString()
+
+            mainBinding.activityMainTextviewDescricaoRolagem.text =
+                this@MainActivity.getString(
+                    R.string.texto_rolagem,
+                    multiplicador,
+                    quantidadeDeFaces,
+                    soma
+                )
+            mainBinding.activityMainResultado.text = (resultado + soma).toString()
+            mainBinding.activityMainTextviewDetalheRolagem.text = detalhe
         }
-        if (somaText.isNotEmpty()) {
-            soma = Integer.parseInt(somaText)
-        }
-        rolagemDescricao.text =
-            getString(R.string.texto_rolagem, multiplicador, quantidadeDeFaces, soma)
-        resultadoTextView.text = ((dado * multiplicador) + soma).toString()
+
     }
 }

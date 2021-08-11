@@ -8,15 +8,27 @@
 
     <TextView
         android:id="@+id/activity_main_textview_descricao_rolagem"
+        style="@style/TextoDinamico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:textSize="20sp"
-        style="@style/TextoDinamico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Rolando 1d20+10 =" />
+
+    <TextView
+        android:id="@+id/activity_main_textview_detalhe_rolagem"
+        style="@style/TextoDinamico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/activity_main_textview_descricao_rolagem"
+        app:layout_constraintStart_toEndOf="@id/activity_main_textview_descricao_rolagem"
+        app:layout_constraintTop_toTopOf="@id/activity_main_textview_descricao_rolagem"
+        tools:text="(2,3)+4" />
 
     <TextView
         android:id="@+id/activity_main_resultado"
@@ -34,34 +46,35 @@
 
     <TextView
         android:id="@+id/activity_main_textview_multiplicador"
+        style="@style/TextoEstatico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/multiplicador_de_dados"
-        style="@style/TextoEstatico"
         app:layout_constraintStart_toStartOf="@id/activity_main_textview_descricao_rolagem"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_resultado"
         tools:text="Multiplicador de Dados:" />
 
     <TextView
         android:id="@+id/activity_main_textview_soma"
+        style="@style/TextoEstatico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/somar_valor"
-        style="@style/TextoEstatico"
         app:layout_constraintStart_toStartOf="@+id/activity_main_textview_multiplicador"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_textview_multiplicador"
         tools:text="Somar valor:" />
 
     <EditText
         android:id="@+id/activity_main_edittext_multiplicador"
+        style="@style/CaixaDeTexto"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="@string/modificador_multiplica"
         android:autofillHints=""
-        style="@style/CaixaDeTexto"
+        android:hint="@string/modificador_multiplica"
+        android:inputType="number"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/activity_main_textview_multiplicador"
         app:layout_constraintStart_toEndOf="@+id/activity_main_textview_multiplicador"
@@ -70,12 +83,13 @@
 
     <EditText
         android:id="@+id/activity_main_edittext_soma"
+        style="@style/CaixaDeTexto"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:autofillHints=""
         android:hint="@string/modificador_soma"
-        style="@style/CaixaDeTexto"
+        android:inputType="numberSigned"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/activity_main_textview_soma"
         app:layout_constraintStart_toEndOf="@+id/activity_main_textview_soma"

@@ -20,8 +20,6 @@
     <string name="desafio_fragment">Desafio Fragment</string>
     <string name="dica_digite_um_texto">Digite um texto</string>
     <string name="botao_envia_texto">Envie esse texto para outro app</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dica_first_fragment">Insira um texto qualquer aqui</string>
     <string name="fragment_button">Go to second fragment</string>
     <string name="botao_incrementa">Increment</string>
