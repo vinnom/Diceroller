@@ -9,6 +9,7 @@ import br.com.vntvisi.diceroller.desafio.dia20210730.DesafioIntentActivity
 import br.com.vntvisi.diceroller.desafio.dia20210804.DesafioFragmentActivity
 import br.com.vntvisi.diceroller.desafio.dia20210806.DesafioRotacaoTelaActivity
 import br.com.vntvisi.diceroller.desafio.dia20210811.DesafioRecyclerViewActivity
+import br.com.vntvisi.diceroller.desafio.dia20210820.DesafioSharedPreferencesActivity
 
 class About : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +44,14 @@ class About : AppCompatActivity() {
 
         tvDesafioRecyclerView.setOnClickListener {
             startActivity(Intent(this, DesafioRecyclerViewActivity::class.java))
+        }
+
+        val tvDesafioSharedPreferences = findViewById<TextView>(R.id.desafio_shared_preferences)
+        tvDesafioSharedPreferences.paintFlags =
+            tvDesafioSharedPreferences.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+
+        tvDesafioSharedPreferences.setOnClickListener {
+            startActivity(Intent(this, DesafioSharedPreferencesActivity::class.java))
         }
 
     }

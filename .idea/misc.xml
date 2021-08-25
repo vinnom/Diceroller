@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/activity_desafio_fragment.xml" value="0.2536231884057971" />
         <entry key="app/src/main/res/layout/activity_desafio_recycler_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_desafio_rotacao_tela.xml" value="0.3697916666666667" />
+        <entry key="app/src/main/res/layout/activity_desafio_shared_preferences.xml" value="0.3697916666666667" />
         <entry key="app/src/main/res/layout/activity_teste_broadcast.xml" value="0.3697916666666667" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3697916666666667" />

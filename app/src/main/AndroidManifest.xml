@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiceRoller">
         <activity
+            android:name=".desafio.dia20210820.DesafioSharedPreferencesActivity"
+            android:exported="true" />
+        <activity
             android:name=".desafio.dia20210811.DesafioRecyclerViewActivity"
             android:exported="true" />
         <activity
